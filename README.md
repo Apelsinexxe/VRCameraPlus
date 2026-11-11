@@ -17,7 +17,7 @@
 1. Установи [Fabric Loader](https://fabricmc.net/use/) для Minecraft.
 2. Скачай и положи в папку `mods`:
    - [Fabric API](https://modrinth.com/mod/fabric-api)
-   - [VRCamera](https://modrinth.com/mod/vrcamera) (основной мод)
+   - [VRCamera](https://github.com/Deelter/VRCamera/releases) (основной мод)
    - [VRCamera Plus](https://github.com/Apelsinexxe/VRCameraPlus/releases) (этот аддон)
    - (опционально) [Mod Menu](https://modrinth.com/mod/modmenu) для кнопки настроек
 3. Запусти игру.
@@ -73,7 +73,6 @@ GPL-3.0 — можешь использовать, изменять и расп�
 ## Ссылки
 
 - [VRCamera (основной мод)](https://github.com/Deelter/VRCamera)
-- [VRCamera на Modrinth](https://modrinth.com/mod/vrcamera)
 
 ---
 
@@ -94,7 +93,7 @@ GPL-3.0 — можешь использовать, изменять и расп�
 1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft.
 2. Download and place in `mods` folder:
    - [Fabric API](https://modrinth.com/mod/fabric-api)
-   - [VRCamera](https://modrinth.com/mod/vrcamera)
+   - [VRCamera](https://github.com/Deelter/VRCamera/releases)
    - [VRCamera Plus](https://github.com/Apelsinexxe/VRCameraPlus/releases)
    - (optional) [Mod Menu](https://modrinth.com/mod/modmenu)
 3. Launch the game.

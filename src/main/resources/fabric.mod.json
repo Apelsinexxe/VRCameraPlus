@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "vrcamera_corner",
+  "version": "${version}",
+  "name": "VRCamera Plus",
+  "description": "Addon for VRCamera: camera picture in the game window or its own window, drag and vertical 9:16 format, watching other players' cameras",
+  "authors": ["Apelsin_exxe"],
+  "contact": {},
+  "license": "GPL-3.0-only",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["ru.vrcameracorner.VRCameraCornerMod"],
+    "modmenu": ["ru.vrcameracorner.ModMenuIntegration"]
+  },
+  "mixins": [
+    {
+      "config": "vrcamera_corner.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "vrcamera": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

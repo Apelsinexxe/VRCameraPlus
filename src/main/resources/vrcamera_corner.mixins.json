@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ru.vrcameracorner.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "DesktopCameraMixin",
+    "DirectorPassMixin",
+    "OutputWindowMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

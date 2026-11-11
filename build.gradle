@@ -1,0 +1,66 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.18.2'
+}
+
+// the same versions VRCamera is built with
+def versionFile = file("../VRCamera-2.2.0/VRCamera-2.2.0/versions/${project.mc}.properties")
+if (!versionFile.exists()) {
+    throw new GradleException("No ${versionFile}, can't build for Minecraft ${project.mc}")
+}
+def versionProperties = new Properties()
+versionFile.withInputStream { versionProperties.load(it) }
+versionProperties.each { key, value -> project.ext.set(key, value) }
+
+version = "${project.mod_version}+${project.minecraft_version}"
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // optional, to open the settings from the Mod Menu list
+    compileOnly "maven.modrinth:modmenu:${project.modmenu_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // VRCamera itself, only to compile against: the player has it in mods
+    compileOnly files("libs/vrcamera-2.2.0+${project.minecraft_version}.jar")
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "loader_version", project.loader_version
+    filteringCharset "UTF-8"
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+                "minecraft_version": project.minecraft_version,
+                "loader_version": project.loader_version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    it.options.release.set(25)
+}
+
+java {
+    if (JavaVersion.current() < JavaVersion.toVersion(25)) {
+        toolchain.languageVersion = JavaLanguageVersion.of(25)
+    }
+}
